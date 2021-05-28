@@ -1,0 +1,17 @@
+
+
+
+.bg-nav-red {
+    background-color:#FF4655 ;
+}
+
+h1 {
+    font-weight: bold;
+    font-size: 5rem;
+    text-shadow: 2px 2px black;
+}
+
+body {
+    background-color: rgba(9, 9, 80, 0.973);
+    color: white;
+}
