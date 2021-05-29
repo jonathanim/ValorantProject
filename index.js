@@ -127,14 +127,52 @@ const agents = [
 
 
 const sectionAgents = document.getElementById("characters");
-
-
+const sectionButtons = document.querySelector(".btn-group")
 
 
 window.addEventListener("DOMContentLoaded", function () {
     createAgent(agents);
 
+    createBtn(agents);
+
 })
+
+
+function createBtn(agentArr) {
+    const rolesBtn = agentArr.reduce(function (acc, item) {
+        if (!acc.includes(item.role)) {
+            acc.push(item.role)
+        }
+        return acc;
+    }, ['all']);
+
+    const displayButton = rolesBtn.map(function (btn) {
+        return `<button class="btn myBtn" type="button" data-role="${btn}">
+        ${btn}
+    </button>`
+    }).join("");
+    sectionButtons.innerHTML = displayButton;
+
+    const filterBtn = document.querySelectorAll(".myBtn");
+
+    filterBtn.forEach(function (btn) {
+        btn.addEventListener("click", function (e) {
+            let currentRole = e.currentTarget.dataset.role;
+            let agentRoles = agents.filter(function (role) {
+                if (role.role === currentRole) {
+                    return role
+                }
+            })
+
+            if (currentRole === "all") {
+                createAgent(agents)
+            }
+            else (createAgent(agentRoles))
+        })
+    })
+
+}
+
 
 
 
@@ -160,7 +198,6 @@ function createAgent(agentsArray) {
     }).join("");
     sectionAgents.innerHTML = displayAgent
 }
-
 
 
 

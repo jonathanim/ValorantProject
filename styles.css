@@ -72,3 +72,22 @@ body {
 
   
 }
+
+
+.myBtn {
+    color:aqua;
+    background-color: #FF4655;
+    border: 3px solid aqua;
+    font-size: 20px;
+    padding: 5px 10px;
+}
+
+
+
+.myBtn:hover {
+    color: #FF4655;
+    background-color: aqua;
+    border: 3px solid #FF4655 ;
+    font-size: 20px;
+    padding: 5px 10px;
+}
